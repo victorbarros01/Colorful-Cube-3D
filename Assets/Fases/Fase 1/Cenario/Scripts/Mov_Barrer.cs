@@ -10,12 +10,13 @@ public class Mov_Barrer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += dir * speed * Time.deltaTime;
-        Invoke(nameof(Desabilitar), 0.75f);
+            transform.position += dir * speed * Time.deltaTime;
+            Invoke(nameof(Desativar), 0.75f);
     }
 
-    void Desabilitar()
+    void Desativar()
     {
-        Barrer.gameObject.SetActive(false);
+        Destroy(Barrer);
     }
+
 }

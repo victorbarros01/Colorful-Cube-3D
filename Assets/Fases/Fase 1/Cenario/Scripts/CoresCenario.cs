@@ -1,15 +1,32 @@
-
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CoresCenario : MonoBehaviour
 {
-    public GameObject Barrer;
-    public GameObject Player;
+    public Lados Cor;
+    public UnityEvent Event;
     void Update() {
-        Debug.DrawRay(Vector3.up, Vector3.down);
-        if(Physics.Raycast(Player.transform.position, Vector3.down ,out RaycastHit hit, 1))
-        {
-            Barrer.GetComponent<Mov_Barrer>().enabled = true;
-        }
+
+
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<LadosCores>(out LadosCores ladosCores)  && ladosCores.cores == Cor)
+        {
+            //Barrer.GetComponent<Mov_Barrer>().enabled = true;
+
+            Event?.Invoke();
+        }
+
+    }
+
+    public void skipLevel()
+    {
+        SceneManager.LoadScene("Fase 1");
+    }
+
+
+
 }

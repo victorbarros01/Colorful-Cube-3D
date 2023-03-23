@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MovPlayer : MonoBehaviour
-{
+public class MovPlayer : MonoBehaviour {
 
     //public GameObject[] Lados = new GameObject[6];
     Vector2 direction;
@@ -11,6 +9,9 @@ public class MovPlayer : MonoBehaviour
     public float speed = 300f;
     bool isMoving = false;
     public float HalfSize = 0.5f;
+    public LayerMask CheckCollision;
+
+
 
     void Update() {
 
@@ -21,12 +22,12 @@ public class MovPlayer : MonoBehaviour
 
             case TouchPhase.Began:
                 StartPosition = touch.position;
-            break;
+                break;
 
             case TouchPhase.Ended:
                 direction = touch.position - StartPosition;
                 Move(direction);
-            break;
+                break;
 
 
         }
@@ -34,38 +35,37 @@ public class MovPlayer : MonoBehaviour
 
     }
 
-    void Move(Vector2 direction)
-    {
+    void Move(Vector2 direction) {
 
-        if(direction.magnitude < 100f)return;
+        if (direction.magnitude < 100f)return;
 
-            Vector2 normalizedDirection = direction.normalized;
-            float Rotation = Mathf.Deg2Rad * 45f;
-            normalizedDirection = new Vector2(
-                    normalizedDirection.x * Mathf.Cos(Rotation) - normalizedDirection.y * Mathf.Sin(Rotation),
-                    normalizedDirection.x * Mathf.Sin(Rotation) + normalizedDirection.y * Mathf.Cos(Rotation)
-            );
+        Vector2 normalizedDirection = direction.normalized;
+        float Rotation = Mathf.Deg2Rad * 45f;
+        normalizedDirection = new Vector2(
+                normalizedDirection.x * Mathf.Cos(Rotation) - normalizedDirection.y * Mathf.Sin(Rotation),
+                normalizedDirection.x * Mathf.Sin(Rotation) + normalizedDirection.y * Mathf.Cos(Rotation)
+        );
 
-            if (Mathf.Abs(normalizedDirection.x) > Mathf.Abs(normalizedDirection.y)) {
-                if (normalizedDirection.x > 0) {
-                    if (!Physics.Raycast(transform.position, Vector3.right, out RaycastHit hit, 3f))
-                        StartCoroutine(Roll(Vector3.right));
-                } else {
-                    if (!Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit, 3f))
-                        StartCoroutine(Roll(Vector3.left));
-                }
+        if (Mathf.Abs(normalizedDirection.x) > Mathf.Abs(normalizedDirection.y)) {
+            if (normalizedDirection.x > 0) {
+                if (!Physics.Raycast(transform.position, Vector3.right, out RaycastHit hit, 3f, CheckCollision.value))
+                    StartCoroutine(Roll(Vector3.right));
             } else {
-                if (normalizedDirection.y > 0) {
-                    if (!Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 3f))
-                        StartCoroutine(Roll(Vector3.forward));
-                } else {
-                    if (!Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 3f))
-                        StartCoroutine(Roll(Vector3.back));
+                if (!Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit, 3f, CheckCollision.value)) {
 
+                    StartCoroutine(Roll(Vector3.left));
                 }
             }
+        } else {
+            if (normalizedDirection.y > 0) {
+                if (!Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 3f, CheckCollision.value))
+                    StartCoroutine(Roll(Vector3.forward));
+            } else {
+                if (!Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 3f, CheckCollision.value))
+                    StartCoroutine(Roll(Vector3.back));
 
-
+            }
+        }
 
 
     }
@@ -77,7 +77,7 @@ public class MovPlayer : MonoBehaviour
         Vector3 rotationCenter = transform.position + direction * HalfSize + Vector3.down * HalfSize;
         Vector3 rotationAxis = Vector3.Cross(Vector3.up, direction);
 
-        while(remainingAngle > 0f) {
+        while (remainingAngle > 0f) {
             float rotationAngle = Mathf.Min(Time.deltaTime * speed, remainingAngle);
             transform.RotateAround(rotationCenter, rotationAxis, rotationAngle);
             remainingAngle -= rotationAngle;
@@ -87,6 +87,7 @@ public class MovPlayer : MonoBehaviour
 
         isMoving = false;
     }
-
-
 }
+
+
+

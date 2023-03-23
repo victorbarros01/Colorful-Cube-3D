@@ -144,6 +144,80 @@ MonoBehaviour:
   Barrer: {fileID: 164211602}
   dir: {x: 0, y: -1, z: 0}
   speed: 2
+--- !u!1 &198255166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198255167}
+  - component: {fileID: 198255169}
+  - component: {fileID: 198255168}
+  m_Layer: 0
+  m_Name: Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198255167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198255166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.38, y: 0, z: -7.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693097987}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &198255168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198255166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02fbc14ceebda7458ae866c9db9922b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cor: 3
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 198255168}
+        m_TargetAssemblyTypeName: CoresCenario, Assembly-CSharp
+        m_MethodName: skipLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &198255169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198255166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999995, y: 0.4042437, z: 1}
+  m_Center: {x: -0.65, y: -0.8321215, z: 2.1316296e-15}
 --- !u!1 &291710522
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,8 +276,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02fbc14ceebda7458ae866c9db9922b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Barrer: {fileID: 164211602}
-  Player: {fileID: 2123956359}
+  Cor: 5
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 164211603}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &299051468
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,13 +303,13 @@ GameObject:
   - component: {fileID: 299051469}
   - component: {fileID: 299051471}
   - component: {fileID: 299051470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blue
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &299051469
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +350,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.14841452, y: 1, z: 1}
-  m_Center: {x: -1.0691233, y: 0, z: 0}
+  m_Center: {x: -1.01, y: 0, z: 0}
 --- !u!1 &345162618
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,13 +362,13 @@ GameObject:
   - component: {fileID: 345162619}
   - component: {fileID: 345162621}
   - component: {fileID: 345162620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Green
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &345162619
 Transform:
   m_ObjectHideFlags: 0
@@ -427,13 +515,13 @@ GameObject:
   - component: {fileID: 813467311}
   - component: {fileID: 813467313}
   - component: {fileID: 813467312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Red
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &813467311
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +562,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.15424705}
-  m_Center: {x: 0, y: 0, z: 1.0828756}
+  m_Center: {x: 0, y: 0, z: 1.02}
 --- !u!1 &950416758
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,13 +574,13 @@ GameObject:
   - component: {fileID: 950416759}
   - component: {fileID: 950416761}
   - component: {fileID: 950416760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pink
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &950416759
 Transform:
   m_ObjectHideFlags: 0
@@ -533,7 +621,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.14258179, z: 1}
-  m_Center: {x: 0, y: 1.0587085, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &954815524
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,13 +633,13 @@ GameObject:
   - component: {fileID: 954815525}
   - component: {fileID: 954815527}
   - component: {fileID: 954815526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Yellow
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954815525
 Transform:
   m_ObjectHideFlags: 0
@@ -592,7 +680,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2067404, y: 1, z: 1}
-  m_Center: {x: 1.1066276, y: 0, z: 0}
+  m_Center: {x: 1.05, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,51 +764,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &973798647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 973798649}
-  - component: {fileID: 973798648}
-  m_Layer: 0
-  m_Name: Teste
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &973798648
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973798647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 17.6}
-  m_Center: {x: 4.83, y: 0, z: 2.06}
---- !u!4 &973798649
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973798647}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23157883, y: 1.2411364, z: 1.3404365}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1146748851
 PrefabInstance:
@@ -894,6 +937,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46c99b4985be86c4480c38070539cc49,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c99b4985be86c4480c38070539cc49, type: 3}
 --- !u!1 &1936451460
@@ -907,13 +955,13 @@ GameObject:
   - component: {fileID: 1936451461}
   - component: {fileID: 1936451463}
   - component: {fileID: 1936451462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Purple
   m_TagString: Lados
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1936451461
 Transform:
   m_ObjectHideFlags: 0
@@ -953,8 +1001,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.113417186, z: 1}
-  m_Center: {x: 0, y: -1.0632901, z: 0}
+  m_Size: {x: 1, y: 0.15996468, z: 1}
+  m_Center: {x: 0, y: -1.01, z: 0}
 --- !u!1 &2123956359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c99b4985be86c4480c38070539cc49,
@@ -975,6 +1023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   HalfSize: 1.1408
+  CheckCollision:
+    serializedVersion: 2
+    m_Bits: 183
 --- !u!65 &2123956365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -994,6 +1045,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1875964945}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &2123956371
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123956359}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &4139559693738557710
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lados
+  - Cenario
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostP
   - Water
   - UI
   - Lados

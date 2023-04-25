@@ -8,6 +8,7 @@ public class ScriptCanvas : MonoBehaviour
 {
     [Header("MenuPause")]
     public GameObject paused;
+
     public bool isPaused = false;   
     [Header("Slider")]
     public int valorTotalSlider;
@@ -58,7 +59,7 @@ public class ScriptCanvas : MonoBehaviour
     {
         isPaused = true;
         paused.SetActive(true);
-        Time.timeScale = 0f;        
+        Invoke(nameof(TimeScale), 5f);        
         
     }
 
@@ -68,6 +69,11 @@ public class ScriptCanvas : MonoBehaviour
         paused.SetActive(false);
         Time.timeScale = 1f;
         
+    }
+
+    public void TimeScale()
+    {
+        Time.timeScale = 0f;
     }
 
     public void UpdateStar(int passosAtuais)

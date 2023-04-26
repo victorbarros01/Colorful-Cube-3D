@@ -7,7 +7,6 @@ public class MovPlayer : MonoBehaviour {
     Vector2 StartPosition;
     private const float speed = 300f;
     bool isMoving = false;
-    int count = 1;
     public float HalfSize = 0.5f;
     public LayerMask CheckCollision;
     public int PassosTotais;
@@ -31,7 +30,6 @@ public class MovPlayer : MonoBehaviour {
                 if (!ScriptCanvas.Instance.isPaused)
                 {
                 Move(direction);
-                Debug.Log(count++);
                 }
                 break;
         

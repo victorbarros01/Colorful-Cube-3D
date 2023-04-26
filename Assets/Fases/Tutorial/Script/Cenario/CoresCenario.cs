@@ -25,8 +25,25 @@ public class CoresCenario : MonoBehaviour
 
     public void Blue()
     {
-        image.color = Color.blue;
+        Color blueColor = new Color(0f, 0.99215686f, 1f, 1f);
+        image.color = blueColor;
     }
 
+    public void Orange()
+    {
+        Color orangeColor = new Color(1f, 0.5f, 0f, 1f);
+        image.color = orangeColor;
+    }
+
+    public void Yellow()
+    {
+        image.color = Color.yellow;
+    }
+
+    public void Purple()
+    {
+        Color purpleColor = new Color(0.5647059f, 0.13725491f, 1f, 1f);
+        image.color = purpleColor;
+    }
     
 }

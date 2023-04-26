@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class ScriptCanvas : MonoBehaviour
 {
+    [Header("Win&Lose")]
+    public GameObject win;
+    public GameObject lose;
+
+
     [Header("MenuPause")]
     public GameObject paused;
 
@@ -36,7 +41,7 @@ public class ScriptCanvas : MonoBehaviour
         contaPassos.value = valorTotalSlider;
     }
 
-    public void Again()
+    public void SkipTutoras()
     {
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1f;
@@ -55,6 +60,14 @@ public class ScriptCanvas : MonoBehaviour
         Time.timeScale = 1f;
 
     }
+
+    public void SkipLevel2()
+    {
+        SceneManager.LoadScene("Fase2");
+        Time.timeScale = 1f;
+
+    }
+
     public void Paused()
     {
         isPaused = true;
@@ -88,6 +101,12 @@ public class ScriptCanvas : MonoBehaviour
                 starSlider[i].overrideSprite = null;
             }
         }
+    }
+
+    public void LevelConcluido()
+    {
+        win.SetActive(true);
+        Invoke(nameof(TimeScale), 5f);
     }
 
 

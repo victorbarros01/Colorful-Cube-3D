@@ -1,1 +1,1 @@
-public enum Lados {PURPLE, YELLOW, RED, BLUE, PINK, GREEN}
+public enum Lados {PURPLE, YELLOW, RED, BLUE, ORANGE, GREEN}

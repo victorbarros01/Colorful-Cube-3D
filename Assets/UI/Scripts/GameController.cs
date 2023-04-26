@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {   
+    [Header("GameController")]
+    public GameController gameController;
+    [Header("Pré-Lobby")]
     public TextMeshProUGUI touchContinue;
+    [Header("Lobby")]
+    public GameObject optsButton;
     public GameObject[] levels;
     public void SkipToTutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1f;        
     }
     public void SkipToFase1()
     {
         SceneManager.LoadScene("Fase1");
+        Time.timeScale = 1f;
     }
 
     public void Update()
@@ -28,6 +35,18 @@ public class GameController : MonoBehaviour
         {
           levels[i].SetActive(true);  
         }
+    }
+
+    public void Options()
+    {
+     optsButton.SetActive(true);
+     Time.timeScale = 0f;
+    }
+
+    public void ExitOptions()
+    {
+     optsButton.SetActive(false);
+     Time.timeScale = 1f;
     }
 
 

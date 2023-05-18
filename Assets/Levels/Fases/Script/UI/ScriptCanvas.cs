@@ -6,7 +6,16 @@ using UnityEngine.UI;
 
 public class ScriptCanvas : MonoBehaviour
 {
+    [Header("Continue")]
+    public Material[] armadilhasMaterials;
+    public GameObject[] armadilhas;
+    public Text countdown;
+    bool isContinued = false;
+    public int countdownInt = 10;
+    public GameObject continueUI;
+
     [Header("Win&Lose")]
+    int coinValue;
     public string nameLevel;
     public GameObject win;
     public GameObject lose;
@@ -39,6 +48,23 @@ public class ScriptCanvas : MonoBehaviour
     {
         contaPassos.value = valorTotalSlider;
     }
+
+    /*public void Update()
+    {
+        if(isContinued == true)
+        {    
+            for(int i = 0; 0 < 10; i++)
+            {
+                countdownInt--;
+                countdown.text = countdownInt.ToString();
+            }
+
+            if(countdownInt <= 0)
+            {
+                DeathPlayer.deathPlayer.Again();
+            }
+        }
+    } */
 
     public void SkipScene(string nameScene)
     {
@@ -96,9 +122,40 @@ public class ScriptCanvas : MonoBehaviour
                 PlayerPrefs.SetInt(nameLevel, stars);
                 PlayerPrefs.Save();
         }
+        coinValue+=100;
+        PlayerPrefs.SetInt("Moedas", coinValue);
         win.SetActive(true);
         Invoke(nameof(TimeScale), 5f);
     }
+
+    public void Continue()
+    {
+        continueUI.SetActive(true);
+        isContinued = true;
+    }
+
+    public void BuyContinue()
+    {
+        PlayerPrefs.SetInt("Moedas", coinValue-=50);
+        continueUI.SetActive(false);
+        Time.timeScale = 1f;
+        for(int i = 0; i < armadilhas.Length; i++)
+        {
+            armadilhas[i].GetComponent<DeathPlayer>().enabled = false;
+            armadilhasMaterials[i].color = Color.white;
+        }
+        Invoke(nameof(ReturnNormal), 4f);
+    }
+
+    public void ReturnNormal()
+    {
+       for(int i = 0; i < armadilhas.Length; i++)
+        {
+            armadilhas[i].GetComponent<DeathPlayer>().enabled = true;
+            armadilhasMaterials[i].color = new Color(0.6431373f,0.6431373f,0.6431373f);
+        } 
+    }
+
 
 
 

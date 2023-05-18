@@ -11,7 +11,6 @@ public class MovPlayer : MonoBehaviour {
     public float HalfSize = 0.5f;
     public LayerMask CheckCollision;
     public int PassosTotais;
-    int i = 1;
     public AudioSource passos;
 
     
@@ -32,7 +31,6 @@ public class MovPlayer : MonoBehaviour {
                 if (!ScriptCanvas.Instance.isPaused )
                 {
                 Move(direction);
-                Debug.Log(i++);
                 }
                 break;
         

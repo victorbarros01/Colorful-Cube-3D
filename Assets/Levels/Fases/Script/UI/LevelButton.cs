@@ -9,6 +9,6 @@ public class LevelButton : MonoBehaviour
 
     public void OpenWindowLevel()
     {
-        PainelFases.instance.OpenWindow(levelName, PlayerPrefs.GetInt(levelName, 0),sceneLevelName);
+        PainelFases.instance.OpenWindow(levelName, PlayerPrefs.GetInt(sceneLevelName, 0),sceneLevelName);
     }
 }

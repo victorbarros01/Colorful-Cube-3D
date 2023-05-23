@@ -12,9 +12,18 @@ public class ScriptCanvas : MonoBehaviour
     public Text countdown;
     public int countdownInt = 10;
     public GameObject continueUI;
-
+    public int coinValue
+    {
+        get
+        {   
+            return PlayerPrefs.GetInt("Moedas", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("Moedas", value);
+        }
+    }
     [Header("Win&Lose")]
-    public int coinValue = 0 ;
     public string nameLevel;
     public GameObject win;
     public GameObject lose;

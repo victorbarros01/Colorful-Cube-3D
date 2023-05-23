@@ -10,12 +10,11 @@ public class ScriptCanvas : MonoBehaviour
     public Material[] armadilhasMaterials;
     public GameObject[] armadilhas;
     public Text countdown;
-    bool isContinued = false;
     public int countdownInt = 10;
     public GameObject continueUI;
 
     [Header("Win&Lose")]
-    int coinValue;
+    public int coinValue = 0 ;
     public string nameLevel;
     public GameObject win;
     public GameObject lose;
@@ -131,12 +130,15 @@ public class ScriptCanvas : MonoBehaviour
     public void Continue()
     {
         continueUI.SetActive(true);
-        isContinued = true;
     }
 
     public void BuyContinue()
     {
-        PlayerPrefs.SetInt("Moedas", coinValue-=50);
+        
+        if(PlayerPrefs.GetInt("Moedas") >= 50)
+        {
+        coinValue-=50;
+        PlayerPrefs.SetInt("Moedas", coinValue);      
         continueUI.SetActive(false);
         Time.timeScale = 1f;
         for(int i = 0; i < armadilhas.Length; i++)
@@ -145,6 +147,7 @@ public class ScriptCanvas : MonoBehaviour
             armadilhasMaterials[i].color = Color.white;
         }
         Invoke(nameof(ReturnNormal), 4f);
+        }
     }
 
     public void ReturnNormal()

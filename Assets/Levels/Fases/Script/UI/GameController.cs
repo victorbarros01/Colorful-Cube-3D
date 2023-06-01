@@ -15,6 +15,19 @@ public class GameController : MonoBehaviour
     [Header("Lobby")]
     public GameObject optsButton;
     public GameObject[] levels;
+
+    public void Start()
+    {
+        if(GameManager.manager.openMenu == false)
+        {
+            preLobby.SetActive(true);
+            lobby.SetActive(false);
+        }else
+        {
+            preLobby.SetActive(false);
+            lobby.SetActive(true);
+        }
+    }
     
     public void CarregarCena(string sceneName)
     {
@@ -43,6 +56,7 @@ public class GameController : MonoBehaviour
     {
         lobby.SetActive(true);
         preLobby.SetActive(false);
+        GameManager.manager.openMenu = true;
         music.volume = 0.14f;
     }
 

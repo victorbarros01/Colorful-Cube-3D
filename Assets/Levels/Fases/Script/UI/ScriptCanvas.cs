@@ -39,6 +39,8 @@ public class ScriptCanvas : MonoBehaviour
     public Image[] starSlider = new Image[3];
     public int[] maxPassos = new int[3];
     [Header("Instancia")]
+    public string level;
+    public bool[] unlockLevel = new bool[4];
     public static ScriptCanvas Instance;
 
     public void Awake()
@@ -55,6 +57,12 @@ public class ScriptCanvas : MonoBehaviour
     public void Start()
     {
         contaPassos.value = valorTotalSlider;
+
+        for(int i = 0; i < unlockLevel.Length; i++)
+        {
+            unlockLevel[i] = false;
+        }
+    
     }
 
     /*public void Update()
@@ -134,6 +142,27 @@ public class ScriptCanvas : MonoBehaviour
         PlayerPrefs.SetInt("Moedas", coinValue);
         win.SetActive(true);
         Invoke(nameof(TimeScale), 5f);
+        switch(level)
+        {
+            case "Fase1":
+                unlockLevel[0] = true;
+                break;
+            
+            case "Fase2":
+                unlockLevel[1] = true;
+                break;
+            
+            case "Fase3":
+                unlockLevel[2] = true;
+                break;
+            
+            case "Fase4":
+                unlockLevel[3] = true;
+                break;
+
+
+
+        }
     }
 
     public void Continue()
@@ -148,27 +177,13 @@ public class ScriptCanvas : MonoBehaviour
         {
         coinValue-=50;
         PlayerPrefs.SetInt("Moedas", coinValue);      
-        continueUI.SetActive(false);
+        Destroy(continueUI) ;
         Time.timeScale = 1f;
         for(int i = 0; i < armadilhas.Length; i++)
         {
-            armadilhas[i].GetComponent<DeathPlayer>().enabled = false;
-            armadilhasMaterials[i].color = Color.white;
+            armadilhas[i].SetActive(false);
         }
-        Invoke(nameof(ReturnNormal), 4f);
         }
     }
-
-    public void ReturnNormal()
-    {
-       for(int i = 0; i < armadilhas.Length; i++)
-        {
-            armadilhas[i].GetComponent<DeathPlayer>().enabled = true;
-            armadilhasMaterials[i].color = new Color(0.6431373f,0.6431373f,0.6431373f);
-        } 
-    }
-
-
-
 
 }

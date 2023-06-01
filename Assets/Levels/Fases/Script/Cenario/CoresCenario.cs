@@ -13,7 +13,8 @@ public class CoresCenario : MonoBehaviour
     {
         if(other.TryGetComponent<LadosCores>(out LadosCores ladosCores)  && ladosCores.cores == Cor)
         {
-            Event?.Invoke();            
+            Event?.Invoke();
+            Debug.Log(ScriptCanvas.Instance.unlockLevel);        
         }
     }
 
